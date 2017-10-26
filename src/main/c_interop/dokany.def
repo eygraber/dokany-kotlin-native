@@ -1,0 +1,6 @@
+depends = windows
+package = dokany
+headers = dokan/dokan.h
+headerFilter = dokan/dokan.h
+compilerOpts = -DUNICODE
+linkerOpts = -L"C:\\Program Files\\Dokan\\Dokan Library-1.0.5" -ldokan1

@@ -1,0 +1,29 @@
+buildscript {
+  ext.kotlin_version = '1.1.51'
+  repositories {
+    jcenter()
+
+    maven {
+      url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies"
+    }
+  }
+
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:0.3.4"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+apply plugin: 'konan'
+
+konanArtifacts {
+  program('hello') {
+    interop('dokany') {
+      includeDirs 'C:\\Program Files\\Dokan\\Dokan Library-1.0.5\\include'
+    }
+
+    libraries {
+      artifact 'dokany'
+    }
+  }
+}
